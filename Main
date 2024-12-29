@@ -1,0 +1,30 @@
+#include <LiquidCrystal.h>
+#define button A0  
+
+const int rs = 8, en = 9, d4 = 4, d5 = 5, d6 = 6, d7 = 7, IR2 = A2;
+LiquidCrystal lcd(8, 9, 4, 5, 6, 7);
+
+int in1 = 0;
+int in2 = 1;
+int in3 = 2;
+int in4 = 3;
+int enA = 12;
+int enB = 13;
+
+
+void setup() {
+
+  pinMode(IR2, INPUT);
+  lcd.begin(16, 2); 
+  lcd.clear();
+
+}
+
+void loop(){
+
+int Right = 10*analogRead(IR2); // Reads the Analog Value on Pin A0 and store it in "Right".*
+lcd.setCursor(0,0);
+lcd.print(Right);
+delay(100);
+lcd.clear();
+}
